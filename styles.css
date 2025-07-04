@@ -177,13 +177,13 @@ h1, h2, h3, .section-title, .hero-content h1, .service-card h3, .about-text h2 {
 }
 
 .hero-image .image-placeholder {
-    width: 700px;
-    height: 700px;
-    border-radius: 20px;
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
     display: flex;
     align-items: center;
     justify-content: center;
-    overflow: hidden;
+    overflow: visible;
     position: relative;
     border: none !important;
     box-shadow: none !important;
@@ -191,13 +191,14 @@ h1, h2, h3, .section-title, .hero-content h1, .service-card h3, .about-text h2 {
 
 .hero-image .image-placeholder img {
     width: 100%;
-    height: 100%;
+    max-width: 900px;
+    height: auto;
+    display: block;
     object-fit: contain;
     background: transparent !important;
     border-radius: 20px;
     position: static;
     z-index: 1;
-    display: block;
 }
 
 /* Garantir que todas as imagens sejam exibidas corretamente */
@@ -978,24 +979,30 @@ h1, h2, h3, .section-title, .hero-content h1, .service-card h3, .about-text h2 {
 }
 
 @media (max-width: 480px) {
-    .container {
-        padding: 0 5px;
+    body {
+        overflow-x: hidden !important;
     }
-    .hero-image .image-placeholder {
-        width: 100%;
-        max-width: 100vw;
-        height: auto;
-        margin: 0 auto;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
+    .container,
+    .hero-container,
+    .hero-image,
+    .hero-image .image-placeholder,
     .hero-image .image-placeholder img {
-        width: 100%;
-        max-width: 100vw;
-        height: auto;
-        object-fit: contain;
-        display: block;
+        max-width: 100vw !important;
+        padding: 0 !important;
+        margin: 0 auto !important;
+        display: block !important;
+    }
+    .hero-image .image-placeholder,
+    .hero-image .image-placeholder img {
+        max-width: 100vw !important;
+        width: 100vw !important;
+        height: auto !important;
+        object-fit: contain !important;
+        overflow: visible !important;
+    }
+    .hero {
+        padding-top: 100px;
+        padding-bottom: 100px;
     }
     .gallery-item {
         min-width: 0;
